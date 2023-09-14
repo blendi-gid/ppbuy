@@ -1,3 +1,46 @@
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  .card__content {
+    transform: none;
+  }
+
+  .card__title {
+    font-size: 20px;
+  }
+
+  .card__description {
+    font-size: 12px;
+  }
+
+  .card img {
+    border-radius: 5px;
+  }
+
+  .header {
+    font-size: 24px;
+  }
+
+  .button {
+    --width: 80px;
+    --height: 30px;
+    --tooltip-height: 30px;
+    --tooltip-width: 70px;
+    --gap-between-tooltip-to-button: 12px;
+  }
+
+  .button::before {
+    font-size: 0.8rem;
+  }
+
+  .button::after {
+    border-width: 8px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
