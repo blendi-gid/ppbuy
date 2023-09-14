@@ -4,6 +4,7 @@
     margin-right: 0;
     width: 100%;
     height: auto;
+    display: block;
   }
 
   .card img {
