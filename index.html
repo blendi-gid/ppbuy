@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buy my Dropbox!!</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://www.paypal.com/sdk/js?client-id=AUjYddgm48FEkOL4wIHvx69MNdiCaZWeyJVZbQD1VYJVrR_w03lwMerOXQ85E1Kquh-ZW90m0NFRXnoi"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+  <div class="header">
+    <h1>BUY MY DROPBOX BELOW!!!</h1>
+  </div>
+
+  <div class="card" style="margin-left: 2em;">
+    <img src="./img/c1.jpg" alt="Image 1">
+    <div class="hover-text">HOVER ME</div>
+    <div class="card__content">
+      <p class="card__title">Premium Small Dropbox</p>
+      <p class="card__description">For just $14.99 you will get the craziest Dropbox ever!!!</p>
+    </div>
+  </div>
+
+  <div data-tooltip="Price: $14.99" class="button" style="transform: translateX(-250px) translateY(300px);" id="paypal-button-container-premium">
+    <div class="button-wrapper">
+      <div class="text">PURCHASE</div>
+        <span class="icon">
+          <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+    </svg>
+        </span>
+      </div>
+    </div>    
+
+    <div data-tooltip="Price: $29.99" class="button" style="transform: translateX(200px) translateY(300px);" id="paypal-button-container-ultra">
+      <div class="button-wrapper">
+        <div class="text">PURCHASE</div>
+          <span class="icon">
+            <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+      </svg>
+          </span>
+        </div>
+      </div>   
+
+  <div class="card">
+    <img src="./img/c2.jpg" alt="Image 2">
+    <div class="hover-text">HOVER ME</div>
+    <div class="card__content">
+      <p class="card__title">Ultra Premium Dropbox</p>
+      <p class="card__description">Pay $29.99, and it will be the best purchase you ever made!!</p>
+    </div>
+  </div>
+
+  <script>
+    const purchaseButton = document.getElementById('paypal-button-container-premium');
+    const purchaseButton2 = document.getElementById('paypal-button-container-ultra');
+
+    purchaseButton.addEventListener('click', function() {
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: '14.99'
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            console.log(details); 
+          });
+        }
+      }).render('#paypal-button-container-premium');
+    });
+
+    purchaseButton2.addEventListener('click', function() {
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: '29.99'
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            console.log(details); 
+          });
+        }
+      }).render('#paypal-button-container-ultra');
+    });
+  </script>
+</body>
+</html>
